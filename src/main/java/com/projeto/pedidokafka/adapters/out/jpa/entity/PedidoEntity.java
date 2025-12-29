@@ -6,12 +6,18 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "pedidos")
+@Table(
+        name = "pedidos",
+        uniqueConstraints = {
+                @UniqueConstraint(columnNames = "produto")
+        }
+)
 public class PedidoEntity {
 
     @Id
     private String id;
 
+    @Column(nullable = false, unique = true)
     private String produto;
 
     private BigDecimal valor;
@@ -29,5 +35,9 @@ public class PedidoEntity {
 
     public String getId() {
         return id;
+    }
+
+    public String getProduto() {
+        return produto;
     }
 }

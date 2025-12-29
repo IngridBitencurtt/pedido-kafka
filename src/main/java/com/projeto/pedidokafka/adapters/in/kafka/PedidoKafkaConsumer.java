@@ -23,4 +23,5 @@ public class PedidoKafkaConsumer {
         Pedido pedido = PedidoKafkaMapper.fromJson(message);
         processarPedidoUseCase.executar(pedido);
     }
+
 }
