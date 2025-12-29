@@ -4,6 +4,7 @@ import com.projeto.pedidokafka.application.usecase.EnviarPedidoUseCase;
 import com.projeto.pedidokafka.application.usecase.ProcessarPedidoUseCase;
 import com.projeto.pedidokafka.domain.ports.PedidoProducerPort;
 import com.projeto.pedidokafka.domain.ports.PedidoProcessorPort;
+import com.projeto.pedidokafka.domain.ports.PedidoRepositoryPort;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -19,8 +20,10 @@ public class UseCaseConfig {
 
     @Bean
     public ProcessarPedidoUseCase processarPedidoUseCase(
-            PedidoProcessorPort processorPort
+            PedidoProcessorPort processorPort,
+            PedidoRepositoryPort repositoryPort
     ) {
-        return new ProcessarPedidoUseCase(processorPort);
+        return new ProcessarPedidoUseCase(processorPort, repositoryPort);
     }
+
 }
