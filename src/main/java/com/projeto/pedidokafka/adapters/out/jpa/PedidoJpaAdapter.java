@@ -19,14 +19,11 @@ public class PedidoJpaAdapter implements PedidoRepositoryPort {
 
     @Override
     public void salvar(Pedido pedido) {
-        try {
-            repository.save(PedidoEntityMapper.toEntity(pedido));
-        } catch (Exception ex) {
 
-            if (ex.getMessage().contains("produto")) {
-                throw new ProdutoJaCadastradoException(pedido.getProduto());
-            }
-
-            throw new PedidoJaProcessadoException(pedido.getId());
+        if (repository.existsByProduto(pedido.getProduto())) {
+            throw new ProdutoJaCadastradoException(pedido.getProduto());
         }
-}}
+
+        repository.save(PedidoEntityMapper.toEntity(pedido));
+    }
+}
