@@ -10,17 +10,15 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/pedidos")
 public class PedidoController {
 
-    private final EnviarPedidoUseCase enviarPedidoUseCase;
+  private final EnviarPedidoUseCase enviarPedidoUseCase;
 
-    public PedidoController(EnviarPedidoUseCase enviarPedidoUseCase) {
-        this.enviarPedidoUseCase = enviarPedidoUseCase;
-    }
+  public PedidoController(EnviarPedidoUseCase enviarPedidoUseCase) {
+    this.enviarPedidoUseCase = enviarPedidoUseCase;
+  }
 
-    @PostMapping
-    @ResponseStatus(HttpStatus.ACCEPTED)
-    public void criarPedido(@RequestBody PedidoRequest request) {
-        enviarPedidoUseCase.executar(
-                PedidoMapper.toDomain(request)
-        );
-    }
+  @PostMapping
+  @ResponseStatus(HttpStatus.ACCEPTED)
+  public void criarPedido(@RequestBody PedidoRequest request) {
+    enviarPedidoUseCase.executar(PedidoMapper.toDomain(request));
+  }
 }

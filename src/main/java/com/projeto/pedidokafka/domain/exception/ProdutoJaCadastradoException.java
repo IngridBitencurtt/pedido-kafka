@@ -2,7 +2,7 @@ package com.projeto.pedidokafka.domain.exception;
 
 public class ProdutoJaCadastradoException extends RuntimeException {
 
-    public ProdutoJaCadastradoException(String message) {
-        super(message);
-    }
+  public ProdutoJaCadastradoException(String message) {
+    super(message);
+  }
 }

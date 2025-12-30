@@ -5,12 +5,8 @@ import com.projeto.pedidokafka.domain.model.Pedido;
 
 public class PedidoEntityMapper {
 
-    public static PedidoEntity toEntity(Pedido pedido) {
-        return new PedidoEntity(
-                pedido.getId(),
-                pedido.getProduto(),
-                pedido.getValor(),
-                pedido.getData()
-        );
-    }
+  public static PedidoEntity toEntity(Pedido pedido) {
+    return new PedidoEntity(
+        pedido.getId(), pedido.getProduto(), pedido.getValor(), pedido.getData());
+  }
 }

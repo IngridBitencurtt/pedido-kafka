@@ -9,19 +9,17 @@ import org.springframework.stereotype.Component;
 @Component
 public class PedidoKafkaConsumer {
 
-    private final ProcessarPedidoUseCase processarPedidoUseCase;
+  private final ProcessarPedidoUseCase processarPedidoUseCase;
 
-    public PedidoKafkaConsumer(ProcessarPedidoUseCase processarPedidoUseCase) {
-        this.processarPedidoUseCase = processarPedidoUseCase;
-    }
+  public PedidoKafkaConsumer(ProcessarPedidoUseCase processarPedidoUseCase) {
+    this.processarPedidoUseCase = processarPedidoUseCase;
+  }
 
-    @KafkaListener(
-            topics = "${app.kafka.topic.pedidos}",
-            groupId = "${spring.kafka.consumer.group-id}"
-    )
-    public void consumir(String message) {
-        Pedido pedido = PedidoKafkaMapper.fromJson(message);
-        processarPedidoUseCase.executar(pedido);
-    }
-
+  @KafkaListener(
+      topics = "${app.kafka.topic.pedidos}",
+      groupId = "${spring.kafka.consumer.group-id}")
+  public void consumir(String message) {
+    Pedido pedido = PedidoKafkaMapper.fromJson(message);
+    processarPedidoUseCase.executar(pedido);
+  }
 }

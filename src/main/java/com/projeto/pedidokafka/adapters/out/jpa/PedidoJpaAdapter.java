@@ -9,19 +9,19 @@ import org.springframework.stereotype.Component;
 @Component
 public class PedidoJpaAdapter implements PedidoRepositoryPort {
 
-    private final PedidoJpaRepository repository;
+  private final PedidoJpaRepository repository;
 
-    public PedidoJpaAdapter(PedidoJpaRepository repository) {
-        this.repository = repository;
-    }
+  public PedidoJpaAdapter(PedidoJpaRepository repository) {
+    this.repository = repository;
+  }
 
-    @Override
-    public void salvar(Pedido pedido) {
-        repository.save(PedidoEntityMapper.toEntity(pedido));
-    }
+  @Override
+  public void salvar(Pedido pedido) {
+    repository.save(PedidoEntityMapper.toEntity(pedido));
+  }
 
-    @Override
-    public boolean existeProduto(String produto) {
-        return repository.existsByProduto(produto);
-    }
+  @Override
+  public boolean existeProduto(String produto) {
+    return repository.existsByProduto(produto);
+  }
 }
