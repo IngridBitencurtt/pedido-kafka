@@ -13,17 +13,17 @@ public class UseCaseConfig {
 
     @Bean
     public EnviarPedidoUseCase enviarPedidoUseCase(
+            PedidoRepositoryPort repositoryPort,
             PedidoProducerPort producerPort
     ) {
-        return new EnviarPedidoUseCase(producerPort);
+        return new EnviarPedidoUseCase(repositoryPort, producerPort);
     }
 
     @Bean
     public ProcessarPedidoUseCase processarPedidoUseCase(
-            PedidoProcessorPort processorPort,
             PedidoRepositoryPort repositoryPort
     ) {
-        return new ProcessarPedidoUseCase(processorPort, repositoryPort);
+        return new ProcessarPedidoUseCase(repositoryPort);
     }
-
 }
+
