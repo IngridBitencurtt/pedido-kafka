@@ -1,6 +1,6 @@
 package com.projeto.pedidokafka.adapters.in.rest;
 
-import com.projeto.pedidokafka.domain.exception.ProdutoJaCadastradoException;
+import com.projeto.pedidokafka.adapters.in.rest.exception.ProdutoJaCadastradoException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;

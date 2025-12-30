@@ -1,4 +1,4 @@
-package com.projeto.pedidokafka.domain.exception;
+package com.projeto.pedidokafka.adapters.in.rest.exception;
 
 public class ProdutoJaCadastradoException extends RuntimeException {
 

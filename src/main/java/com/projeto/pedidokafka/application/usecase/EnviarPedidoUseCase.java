@@ -1,6 +1,6 @@
 package com.projeto.pedidokafka.application.usecase;
 
-import com.projeto.pedidokafka.domain.exception.ProdutoJaCadastradoException;
+import com.projeto.pedidokafka.adapters.in.rest.exception.ProdutoJaCadastradoException;
 import com.projeto.pedidokafka.domain.model.Pedido;
 import com.projeto.pedidokafka.domain.ports.PedidoProducerPort;
 import com.projeto.pedidokafka.domain.ports.PedidoRepositoryPort;
