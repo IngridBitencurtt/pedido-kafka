@@ -5,12 +5,7 @@ import com.projeto.pedidokafka.domain.model.Pedido;
 
 public class PedidoResponseMapper {
 
-    public static PedidoResponse toResponse(Pedido pedido) {
-        return new PedidoResponse(
-                pedido.getId(),
-                pedido.getProduto(),
-                pedido.getValor(),
-                pedido.getData()
-        );
-    }
+  public static PedidoResponse toResponse(Pedido pedido) {
+    return new PedidoResponse(pedido.id(), pedido.produto(), pedido.valor(), pedido.data());
+  }
 }

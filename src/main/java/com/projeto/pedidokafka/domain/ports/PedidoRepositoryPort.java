@@ -1,9 +1,7 @@
 package com.projeto.pedidokafka.domain.ports;
 
 import com.projeto.pedidokafka.domain.model.Pedido;
-
 import java.util.List;
-import java.util.Optional;
 
 public interface PedidoRepositoryPort {
 
@@ -12,6 +10,4 @@ public interface PedidoRepositoryPort {
   boolean existeProduto(String produto);
 
   List<Pedido> buscarTodos();
-
-  Optional<Pedido> buscarPorId(String id);
 }

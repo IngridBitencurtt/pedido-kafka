@@ -21,10 +21,9 @@ public class UseCaseConfig {
   public ProcessarPedidoUseCase processarPedidoUseCase(PedidoRepositoryPort repositoryPort) {
     return new ProcessarPedidoUseCase(repositoryPort);
   }
+
   @Bean
-  public ConsultarPedidoUseCase consultarPedidoUseCase(
-          PedidoRepositoryPort repositoryPort
-  ) {
+  public ConsultarPedidoUseCase consultarPedidoUseCase(PedidoRepositoryPort repositoryPort) {
     return new ConsultarPedidoUseCase(repositoryPort);
   }
 }

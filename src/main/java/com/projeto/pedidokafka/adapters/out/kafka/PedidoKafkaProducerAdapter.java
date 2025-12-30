@@ -27,7 +27,7 @@ public class PedidoKafkaProducerAdapter implements PedidoProducerPort {
   public void enviar(Pedido pedido) {
     try {
       String payload = objectMapper.writeValueAsString(pedido);
-      kafkaTemplate.send(topic, pedido.getId(), payload);
+      kafkaTemplate.send(topic, pedido.id(), payload);
     } catch (Exception e) {
       throw new RuntimeException("Erro ao enviar pedido para o Kafka", e);
     }

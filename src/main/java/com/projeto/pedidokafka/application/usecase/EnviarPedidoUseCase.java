@@ -16,8 +16,8 @@ public class EnviarPedidoUseCase {
   }
 
   public void executar(Pedido pedido) {
-    if (repositoryPort.existeProduto(pedido.getProduto())) {
-      throw new ProdutoJaCadastradoException("Produto já cadastrado: " + pedido.getProduto());
+    if (repositoryPort.existeProduto(pedido.produto())) {
+      throw new ProdutoJaCadastradoException("Produto já cadastrado: " + pedido.produto());
     }
 
     producerPort.enviar(pedido);
