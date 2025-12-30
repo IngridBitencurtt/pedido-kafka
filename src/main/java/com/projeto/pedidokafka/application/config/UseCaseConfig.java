@@ -1,5 +1,6 @@
 package com.projeto.pedidokafka.application.config;
 
+import com.projeto.pedidokafka.application.usecase.ConsultarPedidoUseCase;
 import com.projeto.pedidokafka.application.usecase.EnviarPedidoUseCase;
 import com.projeto.pedidokafka.application.usecase.ProcessarPedidoUseCase;
 import com.projeto.pedidokafka.domain.ports.PedidoProducerPort;
@@ -19,5 +20,11 @@ public class UseCaseConfig {
   @Bean
   public ProcessarPedidoUseCase processarPedidoUseCase(PedidoRepositoryPort repositoryPort) {
     return new ProcessarPedidoUseCase(repositoryPort);
+  }
+  @Bean
+  public ConsultarPedidoUseCase consultarPedidoUseCase(
+          PedidoRepositoryPort repositoryPort
+  ) {
+    return new ConsultarPedidoUseCase(repositoryPort);
   }
 }

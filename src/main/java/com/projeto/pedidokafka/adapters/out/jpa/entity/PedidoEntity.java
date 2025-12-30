@@ -6,22 +6,35 @@ import java.time.LocalDateTime;
 
 @Entity
 @Table(
-    name = "pedidos",
-    uniqueConstraints = {@UniqueConstraint(columnNames = "produto")})
+        name = "pedidos",
+        uniqueConstraints = {
+                @UniqueConstraint(columnNames = "produto")
+        }
+)
 public class PedidoEntity {
 
-  @Id private String id;
+  @Id
+  private String id;
 
-  @Column(nullable = false, unique = true)
+  @Column(nullable = false)
   private String produto;
 
+  @Column(nullable = false)
   private BigDecimal valor;
 
+  @Column(nullable = false)
   private LocalDateTime data;
 
-  protected PedidoEntity() {}
+  protected PedidoEntity() {
+    // JPA only
+  }
 
-  public PedidoEntity(String id, String produto, BigDecimal valor, LocalDateTime data) {
+  public PedidoEntity(
+          String id,
+          String produto,
+          BigDecimal valor,
+          LocalDateTime data
+  ) {
     this.id = id;
     this.produto = produto;
     this.valor = valor;
@@ -34,5 +47,13 @@ public class PedidoEntity {
 
   public String getProduto() {
     return produto;
+  }
+
+  public BigDecimal getValor() {
+    return valor;
+  }
+
+  public LocalDateTime getData() {
+    return data;
   }
 }

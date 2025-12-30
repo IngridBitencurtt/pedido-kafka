@@ -9,4 +9,12 @@ public class PedidoEntityMapper {
     return new PedidoEntity(
         pedido.getId(), pedido.getProduto(), pedido.getValor(), pedido.getData());
   }
+  public static Pedido toDomain(PedidoEntity entity) {
+    return new Pedido(
+            entity.getId(),
+            entity.getProduto(),
+            entity.getValor(),
+            entity.getData()
+    );
+  }
 }
