@@ -16,7 +16,6 @@ O objetivo é simular o envio e processamento de pedidos de forma desacoplada, u
 4. O pedido é persistido no **PostgreSQL**
 5. Os pedidos podem ser consultados via API
 
-
 ---
 
 ## 🛠️ Tecnologias Utilizadas
@@ -36,24 +35,42 @@ O objetivo é simular o envio e processamento de pedidos de forma desacoplada, u
 
 ## 🧱 Arquitetura
 
-O projeto segue **Arquitetura Hexagonal**
-
+O projeto segue **Arquitetura Hexagonal (Ports and Adapters)**.
 
 ### Por que Hexagonal?
 
-- Baixo acoplamento
-- Facilidade para testes
-- Clareza de responsabilidades
-- Fácil evolução (ex: trocar Kafka, banco, REST)
+- Baixo acoplamento  
+- Facilidade para testes  
+- Clareza de responsabilidades  
+- Fácil evolução (ex: trocar Kafka, banco, REST)  
 
 ---
 
+## 📦 Modelo de Pedido
+
 Um pedido contém:
 
-- `id` (UUID)
-- `produto` (String)
-- `valor` (BigDecimal)
-- `data` (LocalDateTime)
+- `id` (UUID)  
+- `produto` (String)  
+- `valor` (BigDecimal)  
+- `data` (LocalDateTime)  
+
+---
+
+## 🐳 Subindo a Infraestrutura (Kafka + PostgreSQL)
+O projeto utiliza Docker Compose.
+
+Subir tudo
+docker-compose up -d
+Isso irá subir:
+
+- Kafka
+- Zookeeper
+- PostgreSQL
+
+## ▶️ Executando a Aplicação
+./mvnw spring-boot:run
+Ou execute diretamente pela IDE (IntelliJ ou Eclipse).
 
 ---
 
@@ -68,30 +85,12 @@ Um pedido contém:
   "produto": "Monitor 27",
   "valor": 1899.90
 }
-
-📌 Retorna: 202 Accepted
+```
+📌 Retorna 202 Accepted
 O pedido é enviado para o Kafka e processado de forma assíncrona.
 
----
-###📄 Listar Pedidos
-GET /pedidos
+### 📄 Listar Pedidos
+**GET** `/pedidos`
 
 ---
-
-🐳 Subindo a Infraestrutura (Kafka + PostgreSQL)
-O projeto utiliza Docker Compose.
-
-Subir tudo
-docker-compose up -d
-Isso irá subir:
-
-Kafka
-
-Zookeeper
-
-PostgreSQL
-
-▶️ Executando a Aplicação
-./mvnw spring-boot:run
-Ou execute diretamente pela IDE (IntelliJ ou Eclipse).
 
