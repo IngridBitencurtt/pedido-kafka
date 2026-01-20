@@ -73,7 +73,7 @@ Um pedido contém:
 O pedido é enviado para o Kafka e processado de forma assíncrona.
 
 ### Listar Pedidos
-**GET** /pedidos
+**GET** `/pedidos`
 GET /pedidos
 
 ---
