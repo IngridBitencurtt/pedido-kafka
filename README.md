@@ -48,8 +48,6 @@ O projeto segue **Arquitetura Hexagonal**
 
 ---
 
-## 📦 Modelo de Pedido
-
 Um pedido contém:
 
 - `id` (UUID)
@@ -74,7 +72,30 @@ Um pedido contém:
 📌 Retorna 202 Accepted
 O pedido é enviado para o Kafka e processado de forma assíncrona.
 
-📄 Listar Pedidos
+### Listar Pedidos
+**GET** /pedidos
 GET /pedidos
+
+---
+🐳 Subindo a Infraestrutura (Kafka + PostgreSQL)
+
+O projeto utiliza Docker Compose.
+
+Subir tudo
+docker-compose up -d
+
+
+Isso irá subir:
+
+Kafka
+
+Zookeeper
+
+PostgreSQL
+
+▶️ Executando a Aplicação
+./mvnw spring-boot:run
+
+Ou pela IDE (IntelliJ / Eclipse).
 
 
