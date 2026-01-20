@@ -68,23 +68,19 @@ Um pedido contém:
   "produto": "Monitor 27",
   "valor": 1899.90
 }
-
-📌 Retorna 202 Accepted
+📌 Retorna: 202 Accepted
 O pedido é enviado para o Kafka e processado de forma assíncrona.
 
-### Listar Pedidos
-**GET** `/pedidos`
+📄 Listar Pedidos
 GET /pedidos
 
 ---
-🐳 Subindo a Infraestrutura (Kafka + PostgreSQL)
 
+🐳 Subindo a Infraestrutura (Kafka + PostgreSQL)
 O projeto utiliza Docker Compose.
 
 Subir tudo
 docker-compose up -d
-
-
 Isso irá subir:
 
 Kafka
@@ -95,7 +91,5 @@ PostgreSQL
 
 ▶️ Executando a Aplicação
 ./mvnw spring-boot:run
-
-Ou pela IDE (IntelliJ / Eclipse).
-
+Ou execute diretamente pela IDE (IntelliJ ou Eclipse).
 
