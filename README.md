@@ -68,10 +68,12 @@ Um pedido contém:
   "produto": "Monitor 27",
   "valor": 1899.90
 }
+
 📌 Retorna: 202 Accepted
 O pedido é enviado para o Kafka e processado de forma assíncrona.
 
-📄 Listar Pedidos
+---
+###📄 Listar Pedidos
 GET /pedidos
 
 ---
